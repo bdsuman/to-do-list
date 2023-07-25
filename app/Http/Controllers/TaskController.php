@@ -30,17 +30,17 @@ class TaskController extends Controller
 
 
     function TaskDelete(Request $request){
-        $Task_id=$request->input('id');
+        $task_id=$request->input('id');
         $user_id=$request->header('id');
-        Task::where('id',$Task_id)->where('user_id',$user_id)->delete();
+        Task::where('id',$task_id)->where('user_id',$user_id)->delete();
         return $this->success('Task Successfull Deleted');
     }
 
 
      function TaskUpdate(Request $request){
-        $Task_id=$request->input('id');
+        $task_id=$request->input('id');
         $user_id=$request->header('id');
-        return Task::where('id',$Task_id)->where('user_id',$user_id)->update([
+        return Task::where('id',$task_id)->where('user_id',$user_id)->update([
             'title'=>$request->input('title'),
             'description'=>$request->input('description'),
             'completed'=>$request->input('completed'),
